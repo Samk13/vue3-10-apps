@@ -21,8 +21,9 @@
       ></p>
       <div
         class="w-1/7 h-10 text-center border"
-        v-for="num in daysInMonth(currentYear, currentMonth)"
+        v-for="num in daysInMonth()"
         :key="num"
+        :class="currentDateClass(num)"
       >
         {{ num }}
       </div>
@@ -45,7 +46,8 @@
 export default {
   data() {
     return {
-      currentMonth: new Date().getMonth() + 1,
+      currentDate: new Date().getUTCDate(),
+      currentMonth: new Date().getMonth(),
       currentYear: new Date().getFullYear(),
       // currentMonthName: new Date().toLocaleString("default", {
       //   month: "long",
@@ -54,18 +56,38 @@ export default {
     };
   },
   methods: {
-    daysInMonth(year, month) {
-      // const month = new Date().getMonth() + 1;
-      return new Date(year, month, 0).getDate();
+    daysInMonth() {
+      return new Date(this.currentYear, this.currentMonth + 1, 0).getDate();
     },
     startDay() {
-      return new Date(this.currentYear, this.currentMonth - 1).getDay();
+      return new Date(this.currentYear, this.currentMonth).getDay();
     },
     next() {
-      this.currentMonth++;
+      if (this.currentMonth === 11) {
+        this.currentMonth = 0;
+        this.currentYear++;
+      } else {
+        this.currentMonth++;
+      }
     },
     previous() {
-      this.currentMonth--;
+      if (this.currentMonth === 0) {
+        this.currentMonth = 11;
+        this.currentYear--;
+      } else {
+        this.currentMonth--;
+      }
+    },
+    currentDateClass(num) {
+      const calelenderFullDate = new Date(
+        this.currentYear,
+        this.currentMonth,
+        num
+      ).toDateString();
+      const currentFullDate = new Date().toDateString();
+      return calelenderFullDate === currentFullDate
+        ? "text-red-900 bg-green-400"
+        : null;
     },
   },
   computed: {
