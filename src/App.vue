@@ -1,5 +1,5 @@
 <template>
-  <div class="container text-center text-3xl flex flex-col">
+  <div class="container m-auto">
     <AppHeader class="mb-10" />
     <router-view></router-view>
   </div>

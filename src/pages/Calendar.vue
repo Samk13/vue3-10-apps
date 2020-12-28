@@ -3,39 +3,44 @@
     <h1 class="text-5xl font-black">
       Vue calendar
     </h1>
-    <div class="flex justify-between">
-      <h2>{{ currentMonthName }}</h2>
-      <h2>{{ currentYear }}</h2>
+    <div class="flex justify-between mt-5 bg-gray-300 p-2">
+      <h2 class="text-2xl font-medium">{{ currentMonthName }}</h2>
+      <h2 class="text-2xl font-medium">{{ currentYear }}</h2>
     </div>
     <section class="flex  font-bold mt-5">
-      <p class="w-36 h-10 text-center" v-for="day in days" :key="day">
+      <p class="w-1/7  h-10 text-center " v-for="day in days" :key="day">
         {{ day }}
       </p>
     </section>
     <hr class="mt-2" />
     <section class="flex flex-wrap font-bold mt-5">
-      <p
+      <div
         class="w-1/7 h-10 text-center"
         v-for="num in startDay()"
         :key="num"
-      ></p>
+      ></div>
       <div
-        class="w-1/7 h-10 text-center border"
+        class="w-1/7 h-10 text-center bg-gray-300"
         v-for="num in daysInMonth()"
         :key="num"
         :class="currentDateClass(num)"
       >
-        {{ num }}
+        <p class="mt-2">
+          {{ num }}
+        </p>
       </div>
     </section>
     <section class="flex justify-between mt-4">
       <button
         @click="previous"
-        class="px-4 py-3 border rounded-lg bg-green-400"
+        class="text-2xl font-medium px-4 py-3 border rounded-lg bg-green-400"
       >
         Previous
       </button>
-      <button @click="next" class="px-4 py-3 border rounded-lg bg-green-400">
+      <button
+        @click="next"
+        class="text-2xl font-medium px-4 py-3 border rounded-lg bg-green-400"
+      >
         next
       </button>
     </section>
