@@ -1,11 +1,8 @@
 <template>
-  <div class="bg-green-400 text-left">
-    <h1
-      class="bg-green-400 p-5 bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-teal-500 text-5xl font-black"
-    >
-      AppHeader
-    </h1>
-  </div>
+  <nav class="bg-green-400 space-x-2 font-bold ml-2 p-5 text-3xl">
+    <router-link class="p-2" to="/">Home</router-link>
+    <router-link to="/calendar">Calendar</router-link>
+  </nav>
 </template>
 
 <script>
