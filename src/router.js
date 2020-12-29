@@ -5,6 +5,7 @@ const routes = [
   { path: "/", component: Home, alias: "/home" },
   { path: "/calendar", component: () => import("./pages/Calendar.vue") },
   { path: "/Markdown", component: () => import("./pages/Markdown.vue") },
+  { path: "/Slider", component: () => import("./pages/Slider.vue") },
 ];
 
 const Router = createRouter({
