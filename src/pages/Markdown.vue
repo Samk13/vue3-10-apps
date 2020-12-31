@@ -2,14 +2,17 @@
   <div>
     <h2 class="text-4xl font-black mb-3">Markdown</h2>
     <section class="flex w-full bg-gray-800 text-white">
-      <article class="w-1/2 h- border-r h-screen">
+      <article class="w-1/2 border-r h-screen">
         <textarea
           :value="text"
           @input="updateText"
-          class="w-full h-full bg-gray-800 text-3xl"
+          class="w-full h-full bg-gray-800 p-5  text-3xl"
         ></textarea>
       </article>
-      <article class="w-1/2 border-l bg-gray-700" v-html="markedText"></article>
+      <article
+        class="w-1/2 border-l p-5 bg-gray-700 text-xl"
+        v-html="markedText"
+      ></article>
     </section>
   </div>
 </template>
