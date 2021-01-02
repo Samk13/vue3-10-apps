@@ -14,6 +14,7 @@ import AppHeader from "./components/AppHeader.vue";
 import LoginModal from "./components/LoginModal.vue";
 export default {
   name: "App",
+  // emits: ["close-login-modal", "open-login-modal"],
   components: {
     AppHeader,
     LoginModal,
